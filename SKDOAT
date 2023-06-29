@@ -1,0 +1,93 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "sky dive of a tower",
+   LoadingTitle = "INF MONEY FUCKER",
+   LoadingSubtitle = "by PJEX",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "SKYOFFATOWERIDGAF"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Untitled",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("Main", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+local Button = Tab:CreateButton({
+   Name = "INF MONEY [Dont get too much or BAN] [250m per click]",
+   Callback = function()
+   -- Example usage:
+-- This script will trigger all the actions when executed.
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Remotes = ReplicatedStorage:WaitForChild("Remotes")
+
+-- Function to trigger all actions
+local function skydiveActions()
+    -- Code snippet 1: Jetpack
+    local args1 = {
+        [1] = false
+    }
+    Remotes.Effects.jetpack:FireServer(unpack(args1))
+
+    -- Code snippet 2: Parachute
+    local args2 = {
+        [1] = true
+    }
+    Remotes.Effects.parachute:FireServer(unpack(args2))
+
+    -- Code snippet 3: Validate Skydive
+    local args3 = {
+        [1] = 250000000,
+        [2] = 5.816667031496763
+    }
+    Remotes.validate_skydive:FireServer(unpack(args3))
+
+    -- Code snippet 4: Disable Parachute
+    local args4 = {
+        [1] = false
+    }
+    Remotes.Effects.parachute:FireServer(unpack(args4))
+
+    -- Code snippet 5: Disable Contrails
+    local args5 = {
+        [1] = false
+    }
+    Remotes.Effects.contrails:FireServer(unpack(args5))
+
+    -- Code snippet 6: Failed Skydive
+    Remotes.failed_skydive:FireServer()
+
+    -- Code snippet 7: Enable Jetpack
+    local args7 = {
+        [1] = true
+    }
+    Remotes.Effects.jetpack:FireServer(unpack(args7))
+
+    -- Code snippet 8: Start Skydive
+    local args8 = {
+        [1] = 440
+    }
+    Remotes.start_skydive:InvokeServer(unpack(args8))
+end
+
+-- Call the skydiveActions function to trigger all actions
+skydiveActions()
+   end,
+})
